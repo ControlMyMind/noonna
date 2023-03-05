@@ -29,6 +29,7 @@ document
     document.getElementById("from-btn").textContent=this.textContent;
     //3. 선택된 currency갑을 변수에 저장한다
     fromCurrency = this.textContent;
+    convert();
 }));
 
 document
@@ -40,3 +41,10 @@ document
     //3. 선택된 currency갑을 변수에 저장한다
     fromCurrency = this.textContent;
 }));
+
+function convert() {
+    //1. 환전
+    let amount = document.getElementById("from-input").value;
+    let convertedAmount = amount * currencyRatio[fromCurrency][toCurrency];
+    document.getElementById("to-input").value = convertedAmount;
+}
